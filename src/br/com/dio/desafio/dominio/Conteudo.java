@@ -1,11 +1,14 @@
 package br.com.dio.desafio.dominio;
 
-public abstract class Conteudo {
+import java.util.ArrayList;
+import java.util.List;
 
+public abstract class Conteudo {
     protected static final double XP_PADRAO = 10d;
 
     private String titulo;
     private String descricao;
+    private List<Feedback> feedbacks = new ArrayList<>();
 
     public abstract double calcularXp();
 
@@ -23,5 +26,13 @@ public abstract class Conteudo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public void adicionarFeedback(Feedback feedback) {
+        feedbacks.add(feedback);
+    }
+
+    public List<Feedback> getFeedbacks() {
+        return feedbacks;
     }
 }
